@@ -69,21 +69,21 @@ public class Template {
             final int quarter = _temp_40 * 10;// 四分之一
             final int twentieth = _temp_20 % 2 == 0 ? _temp_20 : _temp_20 + 1;//二十分之一
             final int halt = _temp_20 * 10;//二分之一
-            for (int size = 2; size < twentieth; size++) {
+            for (int size = 1; size <= 600; size++) {
                 template.append(String.format(Template.XTemplate, size, keep2NumAfterPointer(scale * size) + xUnit));
             }
-            boolean twice = false;
-            for (int size = twentieth; size < quarter; size++) {
-                if ((twice = !twice) || size % 5 == 0)
-                    template.append(String.format(Template.XTemplate, size, keep2NumAfterPointer(scale * size) + xUnit));
-            }
-            for (int size = quarter; size < halt; size += 5) {
-                template.append(String.format(Template.XTemplate, size, keep2NumAfterPointer(scale * size) + xUnit));
-            }
-            for (int size = halt; size < baseWith; size += 10) {
-                template.append(String.format(Template.XTemplate, size, keep2NumAfterPointer(scale * size) + xUnit));
-            }
-            template.append(String.format(Template.XTemplate, baseWith, keep2NumAfterPointer(scale * baseWith) + xUnit));
+//            boolean twice = false;
+//            for (int size = twentieth; size < quarter; size++) {
+//                if ((twice = !twice) || size % 5 == 0)
+//                    template.append(String.format(Template.XTemplate, size, keep2NumAfterPointer(scale * size) + xUnit));
+//            }
+//            for (int size = quarter; size < halt; size += 5) {
+//                template.append(String.format(Template.XTemplate, size, keep2NumAfterPointer(scale * size) + xUnit));
+//            }
+//            for (int size = halt; size < baseWith; size += 10) {
+//                template.append(String.format(Template.XTemplate, size, keep2NumAfterPointer(scale * size) + xUnit));
+//            }
+//            template.append(String.format(Template.XTemplate, baseWith, keep2NumAfterPointer(scale * baseWith) + xUnit));
         } else {
             for (int size : specifyValues) {
                 template.append(String.format(Template.XTemplate, size, keep2NumAfterPointer(scale * size) + xUnit));
